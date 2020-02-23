@@ -102,8 +102,8 @@ class PredictAzure(Resource):
         return {'prediction': prediction}
 
 
-api.add_resource(Predict, '/predict')
-api.add_resource(PredictAzure, '/predict-azure')
+api.add_resource(Predict, '/predict2')
+api.add_resource(PredictAzure, '/predict')
 
 print(("* Loading Keras model and Flask starting server..."
        "please wait until server has fully started"))
