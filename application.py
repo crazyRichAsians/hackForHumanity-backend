@@ -14,7 +14,6 @@ def load_model():
     # load json and create model
     json_file = open('model.json', 'r')
     loaded_model_json = json_file.read()
-    print(model_from_json)
     model = model_from_json(loaded_model_json)
     json_file.close()
 
@@ -60,15 +59,13 @@ class Train(Resource):
     end_point = 'https://burn-predictor.cognitiveservices.azure.com/'
 
     def get(self):
-    
         return {'status': 'success'}
 
 
 api.add_resource(Predict, '/predict')
 api.add_resource(Train, '/train')
 
-if __name__ == '__main__':
-    print(("* Loading Keras model and Flask starting server..."
-           "please wait until server has fully started"))
-    load_model()
-    app.run(debug=True, threaded=False)
+print(("* Loading Keras model and Flask starting server..."
+       "please wait until server has fully started"))
+load_model()
+app.run(debug=True, threaded=False)
