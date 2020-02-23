@@ -34,7 +34,7 @@ def prepare_image(image):
 
     return image
 
-class HelloWorld(Resource):
+class Predict(Resource):
     def get(self):
         tb._SYMBOLIC_SCOPE.value = True
         prediction = ""
@@ -55,7 +55,17 @@ class HelloWorld(Resource):
         return {'status': 'success'}
 
 
-api.add_resource(HelloWorld, '/')
+class Train(Resource):
+    custom_vision_api_key = '938799f332bb4135b771e9e450a62828'
+    end_point = 'https://burn-predictor.cognitiveservices.azure.com/'
+
+    def get(self):
+    
+        return {'status': 'success'}
+
+
+api.add_resource(Predict, '/predict')
+api.add_resource(Train, '/train')
 
 if __name__ == '__main__':
     print(("* Loading Keras model and Flask starting server..."
