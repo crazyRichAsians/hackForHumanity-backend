@@ -42,6 +42,7 @@ class PredictAzure(Resource):
 
 api.add_resource(PredictAzure, '/predict')
 
-print(("* Flask starting server..."
-       "please wait until server has fully started"))
-app.run(host="0.0.0.0", debug=True, threaded=False)
+if __name__ == "__main__":
+    print(("* Flask starting server..."
+           "please wait until server has fully started"))
+    app.run(debug=True, threaded=False)
